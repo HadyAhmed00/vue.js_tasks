@@ -1,0 +1,86 @@
+body {
+    align-items: center;
+    background-color: #1e222e;
+    font-size: large;
+    font-family: "Berlin Sans FB";
+    font-weight: normal;
+}
+
+#task {
+    text-align: center;
+    color: #ffff;
+    font-family: "Berlin Sans FB";
+    font-weight: normal;
+}
+
+#hed {
+    color: #ffff;
+    font-family: "Berlin Sans FB";
+    font-weight: normal;
+}
+
+#login {
+    margin-left: 400px;
+    margin-block-end: 0.67em;
+    text-align: center;
+    width: 500px;
+    height: auto;
+    background-color: #353d53;
+    border: 1px solid #353d53;
+    border-radius: 30px;
+    padding: 10px;
+    padding-top: 0px;
+}
+
+::placeholder {
+    color: #ff8c2ec4;
+    font-family: "Berlin Sans FB";
+    font-weight: normal;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    background-color: #353d53;
+}
+
+.input,
+#logBtn {
+    text-align: center;
+    font-size: large;
+    font-family: "Berlin Sans FB";
+    font-weight: normal;
+    border: 3px solid#a94b00;
+    border-radius: 28px;
+    color: #ff7200;
+    height: 40px;
+}
+
+.input {
+    background-color: #ffff;
+}
+
+#logBtn {
+    padding: 5px 20px 5px 20px;
+    background-color: #353d53;
+}
+
+#logBtn:hover {
+    background-color: #ff7200;
+    color: #1e222e;
+}
+
+#logBtn:focus {
+    outline-color: #353d53;
+}
+
+.input:focus {
+    width: 330px;
+    border-color: #ff7200;
+    outline: none;
+}
+
+.valid {
+    color: rgb(253, 71, 71);
+}
