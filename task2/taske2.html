@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title>Task 2 Sewices</title>
+    <link rel="stylesheet" href="css/task2.css">
+</head>
+
+<body>
+    <h1 id="task">OSC Task 2</h1>
+    <div id="sew">
+        <h2 id="hed">Sewices</h2>
+
+        <button id="web" class="btn" @click="web=!web;web_btn()" :class="{clicke:web}"><pre>Web Development   ${{v_web}}.00</pre> </button><br> <br>
+        <button id="des" class="btn" @click="dis=!dis;dis_btn()" :class="{clicke:dis}"><pre>Design            ${{v_dis}}.00</pre></button><br><br>
+        <button id="int" class="btn" @click="inte=!inte;inte_btn()" :class="{clicke:inte}"><pre>Intergratino      ${{v_inte}}.00</pre></button><br><br>
+        <button id="tar" class="btn" @click="tra=!tra;tra_btn()" :class="{clicke:tra}"><pre>Training          ${{v_tra}}.00</pre></button><br><br>
+        <hr id="split">
+        <pre style="color: #fff;">Totale :          {{total}}$</pre>
+
+
+    </div>
+    <script src="js/vue.js"></script>
+    <script src="js/task.js"></script>
+</body>
+
+</html>

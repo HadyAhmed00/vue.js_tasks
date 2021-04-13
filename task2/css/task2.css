@@ -1,0 +1,64 @@
+body {
+    align-items: center;
+    background-color: #fff;
+    font-size: large;
+    font-family: "Berlin Sans FB";
+    font-weight: normal;
+}
+
+#task {
+    text-align: center;
+    color: black;
+    font-family: "Berlin Sans FB";
+    font-weight: normal;
+}
+
+#hed {
+    padding-top: 20px;
+    color: #ffff;
+    font-family: "Berlin Sans FB";
+    font-weight: normal;
+}
+
+#sew {
+    margin-left: 450px;
+    margin-block-end: 0.67em;
+    text-align: center;
+    width: 400px;
+    height: auto;
+    background-color: #61a1bc;
+    border: none;
+    padding: 10px;
+    padding-top: 0px;
+}
+
+.btn {
+    text-align: center;
+    font-size: large;
+    font-family: "Berlin Sans FB";
+    font-weight: normal;
+    border: none;
+    color: #ffff;
+    height: 60px;
+    width: 300px;
+    padding: 5px 20px 5px 20px;
+    background-color: #8ec16d;
+}
+
+.clicke {
+    background-color: #e35885;
+}
+
+.btn:hover {
+    background-color: #e35885;
+    color: #1e222e;
+}
+
+.btn:focus {
+    outline: none;
+}
+
+#split {
+    border: 1px solid #89b9cd;
+    width: 300px;
+}
