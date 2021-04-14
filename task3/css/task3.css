@@ -1,0 +1,114 @@
+body {
+    animation: fromUp 1.2s;
+    align-items: center;
+    background-color: #1e222e;
+    background: url("ramdan kareem.png");
+    font-size: large;
+    font-family: "Berlin Sans FB";
+    font-weight: normal;
+}
+
+#task {
+    text-align: center;
+    color: white;
+    font-family: "Berlin Sans FB";
+    font-weight: normal;
+}
+
+#hed {
+    padding-top: 20px;
+    color: #ffff;
+    font-family: "Berlin Sans FB";
+    font-weight: normal;
+}
+
+#sew {
+    margin: 0 auto;
+    text-align: center;
+    width: auto;
+    height: auto;
+    border: none;
+    padding: 10px;
+    padding-top: 0px;
+}
+
+.btn {
+    margin: 5px;
+    text-align: center;
+    font-size: large;
+    font-family: "Berlin Sans FB";
+    font-weight: normal;
+    border: none;
+    color: #ffff;
+    height: 60px;
+    width: auto;
+    padding: 5px 20px 5px 20px;
+    border: #ff7200 solid 4px;
+    border-radius: 50px;
+    background-color: transparent;
+}
+
+.clicke {
+    background-color: #e35885;
+}
+
+.btn:hover {
+    background-color: #ff7200;
+    color: #1e222e;
+    cursor: pointer;
+    animation: onit 0.5s forwards;
+}
+
+.btn:focus {
+    outline: none;
+}
+
+.ans {
+    width: 400px;
+    height: auto;
+    border: 3px #ff7200 solid;
+    border-radius: 40px;
+    margin: 0 auto;
+    color: white;
+    vertical-align: middle;
+}
+
+.ans:hover {
+    background-color: #ff7200;
+    color: white;
+}
+
+@keyframes onit {
+    0% {
+        transform: scale(1, 1);
+    }
+    100% {
+        transform: scale(1.2, 1.2);
+    }
+}
+
+@keyframes fromUp {
+    0% {
+        opacity: 0;
+        transform: translateY(-70px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#theAns {
+    color: white;
+    font-size: 20px;
+}
+
+#a {
+    margin-top: 100px;
+    padding: 100px;
+}
+
+#split {
+    border: 1px solid #ffffff;
+    width: 300px;
+}
