@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="css/first.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="icon" href="img/ToDoListIcon2.png">
+    <meta>
+    <title>Todo List</title>
+</head>
+
+<body>
+    <div id="todolist">
+        <h1>
+            Todo List
+            <span>Get things done, one item at a time.</span>
+        </h1>
+
+        <div v-if="todo.length">
+            <transition-group name="todolist" tag="ul">
+                <li v-for="item in todoByStatus" v-bind:class="item.done ? 'done' : ''" v-bind:key="item.id">
+                    <span class="label">{{item.label}}</span>
+                    <div class="actions">
+                        <button class="btn-picto" type="button" v-on:click="markAsDoneOrUndone(item)" v-bind:aria-label="item.done ? 'Undone' : 'Done'" v-bind:title="item.done ? 'Undone' : 'Done'">
+                    <i aria-hidden="true" class="material-icons">{{ item.done ? 'done' : 'check_box_outline_blank' }}</i>
+                  </button>
+                        <button class="btn-picto" type="button" v-on:click="deleteItemFromList(item)" aria-label="Delete" title="Delete">
+                    <i aria-hidden="true" class="material-icons">close</i>
+                  </button>
+                    </div>
+                </li>
+            </transition-group>
+        </div>
+        <p v-else class="emptylist">Your todo list is empty.</p>
+        <form name="newform" v-on:submit.prevent="addItem">
+            <label for="newitem">Add to the todo list</label>
+            <input type="text" name="newitem" id="newitem" v-model="newitem">
+            <button type="submit">Add item</button>
+        </form>
+
+    </div>
+    <script src="js/vue.js"></script>
+    <script src="js/first.js"></script>
+
+</body>
+
+</html>
