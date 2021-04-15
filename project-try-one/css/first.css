@@ -6,7 +6,7 @@
 
 html,
 body {
-    background: #fff;
+    background: #434343;
     font-size: 1.1rem;
     font-family: 'Berlin Sans FB', sans-serif;
     height: 100%;
@@ -24,7 +24,7 @@ body {
     max-width: 500px;
     background: #ffd800;
     color: #FFF;
-    box-shadow: -20px -20px 0px 0px #434343;
+    box-shadow: -20px -20px 0px 0px #fff;
 }
 
 #todolist h1 {
