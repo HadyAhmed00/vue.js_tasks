@@ -4,40 +4,78 @@
 <head>
     <link rel="stylesheet" href="css/first.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="icon" href="img/ToDoListIcon2.png">
+    <link rel="icon" href="img/ToDoListIcon3.png">
     <meta>
     <title>Todo List</title>
 </head>
 
 <body>
-    <div id="todolist">
-        <h1>
-            Todo List
-            <span>Get things done, one item at a time.</span>
-        </h1>
+    <div id="big">
+        <div id="custm">
+            <div id="box" class="iso">
+                <label class="title">Custom Box</label>
+                <hr class="split title" style="width: 95px;">
+                <label class="input lable">background color</label><br>
+                <input type="text" name="backgroundColor" class="input" placeholder="bacgourd Color" v-model="mainDiv.backcolor"><br><br>
+                <label class="input lable">text color</label><br>
+                <input type="text" name="text color" class="input" placeholder="Text color" v-model="mainDiv.textColor"><br><br>
+                <label class="input lable">shado box Color</label><br>
+                <input type="text" name="botder Raduse" class="input" placeholder="border Raduse" v-model="mainDiv.borderColor"><br><br>
+                <label class="input lable">botder Raduse</label><br>
+                <input type="text" name="shado box Color" class="input" placeholder="border Color" v-model="mainDiv.borderRd"><br><br>
+            </div>
+            <hr style="width: 400px;">
+            <div id="li" class="iso">
+                <label class="title"> Custom Task Card </label>
+                <hr class="split title" style="width: 150px;">
+                <label class="input lable">background color</label><br>
+                <input type="text" name="backgroundColor" class="input" placeholder="bacgourd Color" v-model="li.backcolor"><br><br>
+                <label class="input lable">text color</label><br>
+                <input type="text" name="text color" class="input" placeholder="Text color" v-model="li.textColor"><br><br>
+                <label class="input lable">botder Raduse</label><br>
+                <input type="text" name="shado box Color" class="input" placeholder="border Color" v-model="li.borderRd"><br><br>
+            </div>
+            <hr style="width: 400px;">
+            <div id="btn" class="iso">
+                <label id="btn" class="title"> Custom Add Task btn</label>
+                <hr class="split title" style="width: 175px;">
+                <label class="input lable">background color</label><br>
+                <input type="text" name="backgroundColor" class="input" placeholder="bacgourd Color" v-model="btn.backcolor"><br><br>
+                <label class="input lable">text color</label><br>
+                <input type="text" name="text color" class="input" placeholder="Text color" v-model="btn.textColor"><br><br>
+                <label class="input lable">botder Raduse</label><br>
+                <input type="text" name="shado box Color" class="input" placeholder="border Color" v-model="btn.borderRd"><br><br>
+            </div>
+        </div>
+        <div id="todolist" :style="{background:mainDiv.backcolor,color:mainDiv.textColor,borderRadius:mainDiv.borderRd+'px',boxShadow: '-20px -20px 0px 0px'+mainDiv.borderColor }">
+            <h1>
+                Todo List
+                <span>Get things done, one item at a time.</span>
+            </h1>
 
-        <div v-if="todo.length">
-            <transition-group name="todolist" tag="ul">
-                <li v-for="item in todoByStatus" v-bind:class="item.done ? 'done' : ''" v-bind:key="item.id">
-                    <span class="label">{{item.label}}</span>
-                    <div class="actions">
-                        <button class="btn-picto" type="button" v-on:click="markAsDoneOrUndone(item)" v-bind:aria-label="item.done ? 'Undone' : 'Done'" v-bind:title="item.done ? 'Undone' : 'Done'">
+            <div v-if="todo.length">
+                <transition-group name="todolist" tag="ul">
+                    <li v-for="item in todo" :class="item.done ? 'done' : ''" :key="item.id" :style="{background:li.backcolor,color:li.textColor,borderRadius:li.borderRd+'px'}">
+                        <p class="label">{{item.label}}</p>
+                        <div class="actions">
+                            <button class="btn-picto" type="button" @click="markAsDoneOrUndone(item)" :aria-label="item.done ? 'Undone' : 'Done'" :title="item.done ? 'Undone' : 'Done'">
                     <i aria-hidden="true" class="material-icons">{{ item.done ? 'done' : 'check_box_outline_blank' }}</i>
                   </button>
-                        <button class="btn-picto" type="button" v-on:click="deleteItemFromList(item)" aria-label="Delete" title="Delete">
+                            <button class="btn-picto" type="button" @click="deleteItemFromList(item)" aria-label="Delete" title="Delete">
                     <i aria-hidden="true" class="material-icons">close</i>
                   </button>
-                    </div>
-                </li>
-            </transition-group>
+                        </div>
+                    </li>
+                </transition-group>
+            </div>
+            <p v-else class="emptylist">Your todo list is empty.</p>
+            <form name="newform" @submit.prevent="newItemValed()">
+                <label for="newitem">Add to the todo list</label>
+                <input type="text" name="newitem" id="newitem" v-model="newitem">
+                <button type="submit" :style="{background:btn.backcolor,color:btn.textColor,borderRadius:btn.borderRd+'px'}">Add item</button>
+                <label v-if="!isEmpty" style="color: red;">*this field cannot be Empty.</label>
+            </form>
         </div>
-        <p v-else class="emptylist">Your todo list is empty.</p>
-        <form name="newform" v-on:submit.prevent="addItem">
-            <label for="newitem">Add to the todo list</label>
-            <input type="text" name="newitem" id="newitem" v-model="newitem">
-            <button type="submit">Add item</button>
-        </form>
-
     </div>
     <script src="js/vue.js"></script>
     <script src="js/first.js"></script>

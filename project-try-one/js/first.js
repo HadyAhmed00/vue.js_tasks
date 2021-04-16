@@ -1,13 +1,30 @@
 var todolist = new Vue({
-    el: '#todolist',
+    el: '#big',
     data: {
+        mainDiv: {
+            backcolor: '#7d2b2b',
+            textColor: '#FFF',
+            borderColor: '#434343',
+            borderRd: '0',
+        },
+        li: {
+            backcolor: '#434343',
+            textColor: '#FFF',
+            borderRd: '0',
+        },
+        btn: {
+            backcolor: '#434343',
+            textColor: '#FFF',
+            borderRd: '0',
+        },
         newitem: '',
-        sortByStatus: false,
+        isEmpty: true,
         todo: [
             { id: 1, label: "Learn VueJs", done: true },
             { id: 2, label: "Code a todo list", done: false },
             { id: 3, label: "Learn something else", done: false }
         ]
+
     },
     methods: {
         addItem: function() {
@@ -21,23 +38,15 @@ var todolist = new Vue({
             let index = this.todo.indexOf(item)
             this.todo.splice(index, 1);
         },
-        clickontoogle: function(active) {
-            this.sortByStatus = active;
-        }
-    },
-    computed: {
-        todoByStatus: function() {
-
-            if (!this.sortByStatus) {
-                return this.todo;
+        newItemValed: function() {
+            if (!this.newitem == '') {
+                this.addItem();
+                this.isEmpty = true;
+            } else {
+                this.isEmpty = false;
             }
-
-            var sortedArray = []
-            var doneArray = this.todo.filter(function(item) { return item.done; });
-            var notDoneArray = this.todo.filter(function(item) { return !item.done; });
-
-            sortedArray = [...notDoneArray, ...doneArray];
-            return sortedArray;
         }
-    }
+
+    },
+
 });

@@ -1,3 +1,9 @@
+nav {
+    background-color: #ff4e00;
+    background-image: linear-gradient(315deg, #ff4d00a6 0%, #ec6d059c 74%);
+    height: 50px;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -6,25 +12,70 @@
 
 html,
 body {
-    background: #434343;
+    background: #FFF;
     font-size: 1.1rem;
     font-family: 'Berlin Sans FB', sans-serif;
     height: 100%;
 }
 
-@keyframes strikeitem {
-    to {
-        width: calc(100% + 1rem);
-    }
+#custm {
+    margin-left: 900px;
+    margin-top: 100px;
+    animation: formRight 1.2s;
+}
+
+.input {
+    text-align: center;
+    border-radius: 5px;
+    width: 200px;
+    height: 38px;
+}
+
+.input[type="text"] {
+    border: 1px solid;
+    border-color: #7d2b2b;
+}
+
+.input[type="text"]:focus {
+    outline: #7d2b2b;
+    background-color: #434343;
+    color: #f7f1f1;
+    animation: onFocs 1s forwards;
+}
+
+hr {
+    border-color: #7d2b2b;
+}
+
+.title {
+    margin-left: 150px;
+}
+
+.iso {
+    margin: 5px;
+    width: 400px;
+    margin-left: -10px;
+    padding: 5px;
+    /*  border: 2px solid black;*/
+}
+
+.lable {
+    padding: 10px;
+    margin-bottom: 10px;
 }
 
 #todolist {
-    margin: 4rem auto;
+    margin: 4rem;
+    margin-top: -800px;
     padding: 2rem 3rem 3rem;
     max-width: 500px;
-    background: #ffd800;
-    color: #FFF;
-    box-shadow: -20px -20px 0px 0px #fff;
+    /*width: 50%;*/
+    float: left;
+    /*background: #ffd800;
+    color: #FFF;*/
+    box-shadow: -20px -20px 0px 0px #434343;
+    border-color: #7d2b2b;
+    animation: formLeft 1.3s;
 }
 
 #todolist h1 {
@@ -56,21 +107,20 @@ body {
     list-style: none;
 }
 
-#todolist .todolist-move {
-    transition: transform 1s;
-}
-
 #todolist li {
     display: flex;
     margin: 0 -3rem 4px;
     padding: 1.1rem 3rem;
     justify-content: space-between;
     align-items: center;
-    background: rgba(0, 0, 0, 0.281);
+    background: #434343;
+    transition: background .2s ease-out;
 }
 
 #todolist li:hover {
-    background-color: #434343;
+    /*background-color: #7d2b2b;
+    color: #434343;*/
+    animation: onit ease-out 0.6s forwards;
 }
 
 #todolist .actions {
@@ -80,29 +130,17 @@ body {
 
 #todolist .label {
     position: relative;
-    transition: opacity .2s linear;
+    transition: opacity .3s linear;
 }
 
 #todolist .done .label {
-    opacity: .6;
-}
-
-#todolist .done .label:before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: -.5rem;
-    display: block;
-    width: 0%;
-    height: 1px;
-    background: #FFF;
-    animation: strikeitem .2s ease-out 0s forwards;
+    opacity: .7;
+    text-decoration: line-through;
 }
 
 #todolist .btn-picto {
     border: none;
     background: none;
-    -webkit-appearance: none;
     cursor: pointer;
     color: #FFF;
 }
@@ -137,7 +175,7 @@ form input {
 form button {
     padding: 0 1.3rem;
     border: none;
-    background: #e2c000;
+    background: #434343;
     color: white;
     text-transform: uppercase;
     font-weight: bold;
@@ -148,11 +186,54 @@ form button {
 }
 
 form button:hover {
-    background: #434343;
+    /*color: #434343;
+    background: #7d2b2b;*/
+    animation: onit 0.6s forwards;
 }
 
 form input,
 form button {
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Berlin Sans FB';
+    font-weight: normal;
     height: 3rem;
+}
+
+@keyframes onFocs {
+    0% {
+        width: 200px;
+    }
+    100% {
+        width: 400px;
+    }
+}
+
+@keyframes onit {
+    0% {
+        transform: scale(1, 1);
+    }
+    100% {
+        transform: scale(1.2, 1.2);
+    }
+}
+
+@keyframes formLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-90px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes formRight {
+    0% {
+        opacity: 0;
+        transform: translateX(90px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
