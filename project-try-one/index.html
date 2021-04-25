@@ -10,57 +10,41 @@
 </head>
 
 <body>
-    <div id="app">
-        <nav id="nav" :style="{backgroundColor:mainDiv.backcolor}">
-            <p id="in"> CUSTOM TO DO LIST</p>
-        </nav>
+    <div id="big">
         <div id="custm">
             <div id="box" class="iso">
                 <label class="title">Custom Box</label>
-                <hr class="split title" :style="{borderColor:mainDiv.backcolor}" style="width: 95px;">
+                <hr class="split title" style="width: 95px;">
                 <label class="input lable">background color</label><br>
-                <input type="text" name="backgroundColor" class="input" placeholder="bacgourd Color" :style="{borderColor:mainDiv.backcolor}" v-model="mainDiv.backcolor"><br><br>
+                <input type="text" name="backgroundColor" class="input" placeholder="bacgourd Color" v-model="mainDiv.backcolor"><br><br>
                 <label class="input lable">text color</label><br>
-                <input type="text" name="text color" class="input" placeholder="Text color" :style="{borderColor:mainDiv.backcolor}" v-model="mainDiv.textColor"><br><br>
+                <input type="text" name="text color" class="input" placeholder="Text color" v-model="mainDiv.textColor"><br><br>
                 <label class="input lable">shado box Color</label><br>
-                <input type="text" name="botder Raduse" class="input" placeholder="border Raduse" :style="{borderColor:mainDiv.backcolor}" v-model="mainDiv.borderColor"><br><br>
+                <input type="text" name="botder Raduse" class="input" placeholder="border Raduse" v-model="mainDiv.borderColor"><br><br>
                 <label class="input lable">botder Raduse</label><br>
-                <input type="number" name="shado box Color" class="input" placeholder="border Color" :style="{borderColor:mainDiv.backcolor}" style="border: 1px solid;" v-model="mainDiv.borderRd">
-                <input type="range" v-model="mainDiv.borderRd" name="size" min="0" max="100" step="1"><br><br>
+                <input type="text" name="shado box Color" class="input" placeholder="border Color" v-model="mainDiv.borderRd"><br><br>
             </div>
-            <hr :style="{borderColor:mainDiv.backcolor}" style="width: 400px;  border: 2px solid;">
+            <hr style="width: 400px;">
             <div id="li" class="iso">
                 <label class="title"> Custom Task Card </label>
-                <hr class="split title" :style="{borderColor:mainDiv.backcolor}" style="width: 150px;">
+                <hr class="split title" style="width: 150px;">
                 <label class="input lable">background color</label><br>
-                <input type="text" name="backgroundColor" class="input" placeholder="bacgourd Color" :style="{borderColor:mainDiv.backcolor}" v-model="li.backcolor"><br><br>
+                <input type="text" name="backgroundColor" class="input" placeholder="bacgourd Color" v-model="li.backcolor"><br><br>
                 <label class="input lable">text color</label><br>
-                <input type="text" name="text color" class="input" placeholder="Text color" :style="{borderColor:mainDiv.backcolor}" v-model="li.textColor"><br><br>
+                <input type="text" name="text color" class="input" placeholder="Text color" v-model="li.textColor"><br><br>
                 <label class="input lable">botder Raduse</label><br>
-                <input type="number" name="shado box Color" class="input" placeholder="border Color" :style="{borderColor:mainDiv.backcolor}" style="border:1px solid;" v-model="li.borderRd">
-                <input type="range" v-model="li.borderRd" name="size" min="0" max="50" step="1"><br><br>
+                <input type="text" name="shado box Color" class="input" placeholder="border Color" v-model="li.borderRd"><br><br>
             </div>
-            <hr :style="{borderColor:mainDiv.backcolor}" style="width: 400px; border: 2px solid;">
+            <hr style="width: 400px;">
             <div id="btn" class="iso">
                 <label id="btn" class="title"> Custom Add Task btn</label>
-                <hr class="split title" :style="{borderColor:mainDiv.backcolor}" style="width: 175px;">
+                <hr class="split title" style="width: 175px;">
                 <label class="input lable">background color</label><br>
-                <input type="text" name="backgroundColor" class="input" placeholder="bacgourd Color" :style="{borderColor:mainDiv.backcolor}" v-model="btn.backcolor"><br><br>
+                <input type="text" name="backgroundColor" class="input" placeholder="bacgourd Color" v-model="btn.backcolor"><br><br>
                 <label class="input lable">text color</label><br>
-                <input type="text" name="text color" class="input" placeholder="Text color" :style="{borderColor:mainDiv.backcolor}" v-model="btn.textColor"><br><br>
+                <input type="text" name="text color" class="input" placeholder="Text color" v-model="btn.textColor"><br><br>
                 <label class="input lable">botder Raduse</label><br>
-                <input type="number" name="shado box Color" class="input" placeholder="border Color" :style="{borderColor:mainDiv.backcolor}" style="border:1px solid;" v-model="btn.borderRd">
-                <input type="range" v-model="btn.borderRd" name="size" min="0" max="30" step="1"><br><br>
-            </div>
-            <br>
-            <div id="fonts">
-                <p id="fist" :style="{backgroundColor:mainDiv.backcolor}"> chose your font</p>
-                <ul>
-
-                    <li class="items" v-for="font in fontsList" @click="changeFont(font)">
-                        {{font}}
-                    </li>
-                </ul>
+                <input type="text" name="shado box Color" class="input" placeholder="border Color" v-model="btn.borderRd"><br><br>
             </div>
         </div>
         <div id="todolist" :style="{background:mainDiv.backcolor,color:mainDiv.textColor,borderRadius:mainDiv.borderRd+'px',boxShadow: '-20px -20px 0px 0px'+mainDiv.borderColor }">
@@ -70,8 +54,8 @@
             </h1>
 
             <div v-if="todo.length">
-                <div id="card" name="todolist" tag="ul">
-                    <li v-for="item in todo" :class="item.done ? 'done' : ''" :style="{background:li.backcolor,color:li.textColor,borderRadius:li.borderRd+'px'}">
+                <transition-group name="todolist" tag="ul">
+                    <li v-for="item in todo" :class="item.done ? 'done' : ''" :key="item.id" :style="{background:li.backcolor,color:li.textColor,borderRadius:li.borderRd+'px'}">
                         <p class="label">{{item.label}}</p>
                         <div class="actions">
                             <button class="btn-picto" type="button" @click="markAsDoneOrUndone(item)" :aria-label="item.done ? 'Undone' : 'Done'" :title="item.done ? 'Undone' : 'Done'">
@@ -82,42 +66,15 @@
                   </button>
                         </div>
                     </li>
-                </div>
+                </transition-group>
             </div>
             <p v-else class="emptylist">Your todo list is empty.</p>
             <form name="newform" @submit.prevent="newItemValed()">
                 <label for="newitem">Add to the todo list</label>
-                <input type="text" name="newitem" id="newitem" v-model="newitem" placeholder="Enter The new Item">
+                <input type="text" name="newitem" id="newitem" v-model="newitem">
                 <button type="submit" :style="{background:btn.backcolor,color:btn.textColor,borderRadius:btn.borderRd+'px'}">Add item</button>
                 <label v-if="!isEmpty" style="color: red;">*this field cannot be Empty.</label>
             </form>
-        </div>
-
-        <div id="theams">
-            <button class="theam-btn" @click="changeTheam('#7d2b2b','#434343')">
-                <img @click="changeTheam('#7d2b2b','#434343')" src="img/theam0.png" alt="thim 1">
-            </button>
-            <button class="theam-btn" @click="changeTheam('#1c1e26','#cd806a')">
-                <img @click="changeTheam('#1c1e26','#cd806a')" src="img/theam1.png" alt="thim 2">
-            </button>
-            <button class="theam-btn" @click="changeTheam('#313131','#f67416')">
-                <img @click="changeTheam('#313131','#f67416')" src="img/theam2.png" alt="thim 3">
-            </button>
-            <button class="theam-btn" @click="changeTheam('#1c292f','#6bde3b')">
-                <img @click="changeTheam('#1c292f','#6bde3b')" src="img/theam3.png" alt="thim 4">
-            </button><br>
-            <button class="theam-btn" @click="changeTheam('#f35588','#484b4b')">
-                <img @click="changeTheam('#f35588','#484b4b')" src="img/theam4.png" alt="thim 3">
-            </button>
-            <button class="theam-btn" @click="changeTheam('#859900','#e3ba4a')">
-                <img @click="changeTheam('#859900','#e3ba4a')" src="img/theam5.png" alt="thim 3">
-            </button>
-            <button class="theam-btn" @click="changeTheam('#190618','#e0caac')">
-                <img @click="changeTheam('#190618','#e0caac')" src="img/theam6.png" alt="thim 3">
-            </button>
-            <button class="theam-btn" @click="changeTheam('#7ec160','#523525')">
-                <img @click="changeTheam('#7ec160','#523525')" src="img/theam7.png" alt="thim 3">
-            </button>
         </div>
     </div>
     <script src="js/vue.js"></script>
