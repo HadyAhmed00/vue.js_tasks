@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title>Task 3 Q and A</title>
+    <link rel="stylesheet" href="css/task3.css">
+</head>
+
+<body>
+    <h1 id="task">OSC Task 3</h1>
+    <div>
+        <h1 id="ramadan" style="color: white; margin-left: 250px;"> 6 Most Frequently Asked Questions during Ramadan </h1>
+    </div>
+    <div id="sew">
+        <button @click="showQ(q)" class="btn" v-for="q in q_list"> {{q}} </button>
+
+        <hr id="split">
+        <label style="color: white; font-size:20px;">the answer is:</label>
+        <div class="ans">
+            <p id="theAns">
+                {{see}}
+            </p>
+        </div>
+    </div>
+    <script src="js/vue.js"></script>
+    <script src="js/task.js"></script>
+</body>
+
+</html>
