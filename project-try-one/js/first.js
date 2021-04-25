@@ -1,5 +1,5 @@
 var todolist = new Vue({
-    el: '#big',
+    el: '#app',
     data: {
         mainDiv: {
             backcolor: '#7d2b2b',
@@ -20,15 +20,16 @@ var todolist = new Vue({
         newitem: '',
         isEmpty: true,
         todo: [
-            { id: 1, label: "Learn VueJs", done: true },
-            { id: 2, label: "Code a todo list", done: false },
-            { id: 3, label: "Learn something else", done: false }
-        ]
+            { label: "Learn VueJs", done: true },
+            { label: "Code a todo list", done: false },
+            { label: "Learn something else", done: false }
+        ],
+        fontsList: ['Berlin Sans FB', 'Monospace', 'Fantasy', 'Cursive', 'Serif', 'Sans-serif', 'Robot', 'Dancing Script']
 
     },
     methods: {
         addItem: function() {
-            this.todo.push({ id: Math.floor(Math.random() * 9999) + 10, label: this.newitem, done: false });
+            this.todo.push({ label: this.newitem, done: false });
             this.newitem = '';
         },
         markAsDoneOrUndone: function(item) {
@@ -45,8 +46,18 @@ var todolist = new Vue({
             } else {
                 this.isEmpty = false;
             }
+        },
+        changeFont: function(font) {
+            document.getElementById("todolist").style.fontFamily = font + "";
+        },
+        changeTheam: function(background, shado) {
+            this.mainDiv.backcolor = background;
+            this.mainDiv.borderColor = shado;
+            this.li.backcolor = shado;
+            this.btn.backcolor = shado;
         }
 
     },
+
 
 });
