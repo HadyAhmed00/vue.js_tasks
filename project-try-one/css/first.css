@@ -1,3 +1,9 @@
+nav {
+    background-color: #ff4e00;
+    background-image: linear-gradient(315deg, #ff4d00a6 0%, #ec6d059c 74%);
+    height: 50px;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -12,27 +18,9 @@ body {
     height: 100%;
 }
 
-
-/* NAV bare*/
-
-#nav {
-    background-color: #7d2b2b;
-    height: 50px;
-    float: top;
-}
-
-#in {
-    padding-left: 40px;
-    padding-top: 10px;
-    color: #FFF;
-}
-
-
-/* custumaizatino styling */
-
 #custm {
     margin-left: 900px;
-    margin-top: 0px;
+    margin-top: 100px;
     animation: formRight 1.2s;
 }
 
@@ -44,7 +32,7 @@ body {
 }
 
 .input[type="text"] {
-    border: 1.5px solid;
+    border: 1px solid;
     border-color: #7d2b2b;
 }
 
@@ -52,8 +40,7 @@ body {
     outline: #7d2b2b;
     background-color: #434343;
     color: #f7f1f1;
-    animation: onFocs 0.5s forwards;
-    transition: background 0.5s;
+    animation: onFocs 1s forwards;
 }
 
 hr {
@@ -77,83 +64,18 @@ hr {
     margin-bottom: 10px;
 }
 
-
-/*the fonts list*/
-
-#fonts {
-    /* margin-left: 900px;
-    margin-top: 345px;*/
-    margin-bottom: 50PX;
-    width: 300px;
-    padding-bottom: 20px;
-}
-
-#fonts ul {
-    overflow-y: scroll;
-    max-height: 200px;
-}
-
-#fonts #fist {
-    height: 50px;
-    background-color: #7d2b2b;
-    color: #FFF;
-    text-align: center;
-    vertical-align: middle;
-}
-
-#fonts .items {
-    text-align: center;
-    cursor: pointer;
-    width: auto;
-    height: 40px;
-    border: 1px #434343 solid;
-}
-
-#fonts .items:hover {
-    background: #434343;
-    color: #FFF;
-    transition: background 0.5s;
-}
-
-
-/* thems */
-
-#theams {
-    /*margin-top: -600px;*/
-    margin-left: 50px;
-}
-
-#theams .theam-btn {
-    border: none;
-}
-
-#theams .theam-btn:hover {
-    animation: onit 0.5s forwards;
-}
-
-#theams .theam-btn:focus {
-    outline: none;
-}
-
-
-/* to do list styling */
-
 #todolist {
-    /* margin: 4rem;*/
-    margin-bottom: 50px;
-    margin-left: 80px;
-    margin-top: -1200px;
+    margin: 4rem;
+    margin-top: -800px;
     padding: 2rem 3rem 3rem;
     max-width: 500px;
-    /*position: fixed;
     /*width: 50%;*/
-    /* float: left;*/
+    float: left;
     /*background: #ffd800;
     color: #FFF;*/
     box-shadow: -20px -20px 0px 0px #434343;
     border-color: #7d2b2b;
     animation: formLeft 1.3s;
-    transition: background 0.6s;
 }
 
 #todolist h1 {
@@ -193,10 +115,6 @@ hr {
     align-items: center;
     background: #434343;
     transition: background .2s ease-out;
-}
-
-#card {
-    padding-top: 50px;
 }
 
 #todolist li:hover {
@@ -279,9 +197,6 @@ form button {
     font-weight: normal;
     height: 3rem;
 }
-
-
-/* key frams animatino */
 
 @keyframes onFocs {
     0% {
